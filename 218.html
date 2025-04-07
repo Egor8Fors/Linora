@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Linora Beauty Lounge у Харкові - розкішні б’юті-послуги для вишуканого досвіду.">
+    <meta name="keywords" content="розкішний салон краси, Харків, догляд за волоссям, догляд за шкірою, 1920x1080">
+    <meta name="author" content="Linora Beauty Lounge">
+    <title>Linora Beauty Lounge | Харків</title>
+    <style>
+        :root {
+            --primary: #f9e9ec;
+            --secondary: #d8a7b1;
+            --accent: #6b728e;
+            --white: #ffffff;
+            --dark: #2d2d2d;
+            --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+
+        body {
+            background: var(--white);
+            color: var(--dark);
+            line-height: 1.6;
+            font-size: 12px;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(249, 233, 236, 0.95);
+            padding: 0.8rem 1.5rem;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            transition: background 0.3s ease;
+        }
+
+        header.scrolled {
+            background: var(--primary);
+        }
+
+        .header-container {
+            max-width: 1920px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 50px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .logo span {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--dark);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        
+        .hero {
+            position: relative;
+            height: 100vh;
+            max-height: 1080px;
+            width: 1920px;
+            margin: 0 auto;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 1920px;
+            min-height: 1080px;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.35);
+            z-index: 0;
+        }
+
+        .hero-content {
+            z-index: 1;
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--secondary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .cta-btn:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        
+        section {
+            padding: 4rem 1.5rem;
+            max-width: 1920px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark);
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            width: 40px;
+            height: 2px;
+            background: var(--secondary);
+            position: absolute;
+            bottom: -8px;
+            left: 50 -webkit-transform: translateX(-50%);
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        
+        #welcome {
+            background: var(--primary);
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .welcome-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .welcome-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .welcome-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .welcome-card p {
+            font-size: 0.85rem;
+        }
+
+        /* Services Section */
+        #services {
+            background: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--primary);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover {
+            background: var(--secondary);
+            color: var(--white);
+            transform: scale(1.03);
+        }
+
+        .service-card p {
+            margin-top: 0.8rem;
+            font-size: 0.8rem;
+        }
+
+        /* Gallery Section */
+        #gallery {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Booking Modal */
+        .booking-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1500;
+        }
+
+        .booking-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 450px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 0.8rem;
+            right: 0.8rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        .modal-content h3 {
+            text-align: center;
+            margin-bottom: 1.2rem;
+            font-size: 1.2rem;
+        }
+
+        .modal-content form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .modal-content input,
+        .modal-content select {
+            padding: 0.6rem;
+            border: 1px solid var(--secondary);
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .modal-content button {
+            padding: 0.6rem;
+            background: var(--secondary);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .modal-content button:hover {
+            background: var(--accent);
+        }
+        #contact {
+            background: var(--secondary);
+            color: var(--white);
+            border-radius: 10px;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+        .contact-info p {
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+            font-size: 0.9rem;
+            width: 85%;
+            box-sizing: border-box;
+            margin: 2px 0; 
+        }
+
+        .contact-form textarea {
+            height: 80px;
+        }
+
+        .contact-form button {
+            padding: 0.6rem;
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            border-radius: 20px; 
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            width: 85%;
+        }
+
+        .contact-form button:hover {
+            background: #5a617e;
+        }
+
+       
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1920px;
+            margin: 0 auto 2rem;
+        }
+
+        .footer-grid h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .footer-grid ul {
+            list-style: none;
+        }
+
+        .footer-grid li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-grid a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-grid a:hover {
+            color: var(--secondary);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icons a {
+            font-size: 1.5rem;
+            color: var(--white);
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--secondary);
+        }
+
+        .heart-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .heart-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .heart-btn span {
+            font-size: 24px;
+        }
+
+        /* Animated Hearts */
+        .heart {
+            position: fixed;
+            bottom: 20px;
+            left: 40px;
+            font-size: 20px;
+            color: #ff6b6b;
+            pointer-events: none;
+            z-index: 999;
+            animation: floatUp 2s ease-in-out forwards;
+        }
+
+        @keyframes floatUp {
+            0% {
+                opacity: 1;
+                transform: translateY(0) translateX(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100vh) translateX(calc(50px * var(--random-x)));
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1920px) {
+            .hero {
+                width: 100%;
+            }
+
+            .hero video {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            .welcome-grid,
+            .services-grid,
+            .gallery-grid,
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 0.6rem 1rem;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--primary);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow-sm);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero {
+                height: 80vh;
+            }
+
+            .welcome-grid,
+            .services-grid,
+            .gallery-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo span {
+                font-size: 1.2rem;
+            }
+
+            .logo img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 0.8rem;
+            }
+
+            .cta-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.8rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .welcome-card,
+            .service-card {
+                padding: 1rem;
+            }
+
+            .modal-content {
+                padding: 1rem;
+            }
+
+            .heart-balloon {
+                width: 60px; 
+                height: 75px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="3.jpg" alt="Linora Beauty Lounge Логотип">
+                <span>Linora</span>
+            </div>
+            <span class="hamburger">☰</span>
+            <nav>
+                <ul>
+                    <li><a href="#welcome">Про нас</a></li>
+                    <li><a href="#services">Послуги</a></li>
+                    <li><a href="#gallery">Галерея</a></li>
+                    <li><a href="#contact">Контакти</a></li>
+                    <li><a href="#" class="book-now">Зарезервувати</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <video autoplay muted loop playsinline preload="auto">
+            <source src="2.mp4" type="video/mp4">
+            Ваш браузер не підтримує відео.
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Linora Beauty Lounge</h1>
+            <p>Ніжна краса у Харкові</p>
+            <a href="#" class="cta-btn book-now">Зарезервувати</a>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section id="welcome">
+        <h2>Про Linora</h2>
+        <div class="welcome-grid">
+            <div class="welcome-card">
+                <h3>Преміальні послуги</h3>
+                <p>Найкращі б’юті-процедури з продуктами світового рівня.</p>
+            </div>
+            <div class="welcome-card">
+                <h3>Експертна команда</h3>
+                <p>Талановиті стилісти з пристрастю до досконалості.</p>
+            </div>
+            <div class="welcome-card">
+                <h3>Елегантна атмосфера</h3>
+                <p>Вишукане місце для вашого відпочинку.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Наші послуги</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Перукарський кутюр</h3>
+                <p>Стрижка: 3500 грн.<br>Фарбування волосся: 9000 грн.<br>Натуральна перука: від 27000 грн.</p>
+            </div>
+            <div class="service-card">
+                <h3>Догляд за шкірою</h3>
+                <p>Фірмовий догляд за обличчям: 4900 грн.<br>Антивіковий пілінг: 10200 грн.<br>Зволожуюче сяйво: 5500 грн.</p>
+            </div>
+            <div class="service-card">
+                <h3>Манікюр</h3>
+                <p>Класичний манікюр: 400 грн.<br>Дизайнерські нігти: 800 грн.<br>Спа-педикюр: 700 грн.</p>
+            </div>
+            <div class="service-card">
+                <h3>Макіяж</h3>
+                <p>Денний гламур: 700 грн.<br>Вечірній образ: 1100 грн.<br>Весільний макіяж: 2500 грн.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2>Наші роботи</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="1.jpg" alt="Стилізація волосся">
+            </div>
+            <div class="gallery-item">
+                <img src="4.jpg" alt="Дизайн нігтів">
+            </div>
+            <div class="gallery-item">
+                <img src="5.jpg" alt="Макіяж">
+            </div>
+            <div class="gallery-item">
+                <img src="6.jpg" alt="Догляд за шкірою">
+            </div>
+            <div class="gallery-item">
+                <img src="7.jpg" alt="Перуки">
+            </div>
+            <div class="gallery-item">
+                <img src="8.jpg" alt="Наша команда">
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox">
+        <img src="" alt="Зображення з галереї">
+    </div>
+
+    <!-- Booking Modal -->
+    <div class="booking-modal">
+        <div class="modal-content">
+            <span class="close-btn">×</span>
+            <h3>Забронювати візит</h3>
+            <form>
+                <input type="text" placeholder="Повне ім’я" required>
+                <input type="tel" placeholder="Номер телефону" required>
+                <select required>
+                    <option value="">Оберіть послугу</option>
+                    <option value="hair">Перукарський кутюр</option>
+                    <option value="skin">Догляд за шкірою</option>
+                    <option value="nails">Манікюр</option>
+                    <option value="makeup">Макіяж</option>
+                </select>
+                <input type="datetime-local" required>
+                <button type="submit">Підтвердити бронювання</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Зв’яжіться з нами</h2>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Linora Beauty Lounge</h3>
+                <p>Проспект Науки 15, Харків, Україна</p>
+                <p>Телефон: +380 (93) 456-78-90</p>
+                <p>Email: info@linorabeauty.ua</p>
+                <p>Пн-Пт: 9:00-20:00<br>Сб: 10:00-18:00</p>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <input type="text" placeholder="Ваше ім’я" required>
+                    <input type="email" placeholder="Ваш Email" required>
+                    <textarea placeholder="Ваше повідомлення" required></textarea>
+                    <button type="submit">Надіслати повідомлення</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h4>Про Linora</h4>
+                <p>Linora Beauty Lounge – простір розкоші та краси у Харкові з 2019 року. Ми поєднуємо індивідуальний підхід, сучасні техніки догляду та преміальні бренди, щоб кожен гість відчував себе неперевершено. Довіртеся професіоналам Linora – і ваша краса стане мистецтвом! ✨</p>
+            </div>
+            <div>
+                <h4>Навігація</h4>
+                <ul>
+                    <li><a href="#welcome">Про нас</a></li>
+                    <li><a href="#services">Послуги</a></li>
+                    <li><a href="#gallery">Галерея</a></li>
+                    <li><a href="#contact">Контакти</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Послуги</h4>
+                <ul>
+                    <li><a href="#services">Перукарський кутюр</a></li>
+                    <li><a href="#services">Догляд за шкірою</a></li>
+                    <li><a href="#services">Манікюр</a></li>
+                    <li><a href="#services">Макіяж</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="social-icons">
+            <a href="#">📷</a>
+            <a href="#">🐦</a>
+            <a href="#">📘</a>
+        </div>
+        <p style="margin-top: 1.5rem;">© 2020 Linora Beauty Lounge. Усі права захищено.</p>
+    </footer>
+
+    <!-- Heart Button -->
+    <div class="heart-btn">
+        <span>❤️</span>
+    </div>
+
+    <script>
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Hamburger Menu
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav ul');
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                nav.classList.remove('active');
+            });
+        });
+
+        // Booking Modal
+        const bookNowButtons = document.querySelectorAll('.book-now');
+        const bookingModal = document.querySelector('.booking-modal');
+        const closeModal = document.querySelector('.close-btn');
+
+        bookNowButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                bookingModal.classList.add('active');
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            bookingModal.classList.remove('active');
+        });
+
+        bookingModal.addEventListener('click', (e) => {
+            if (e.target === bookingModal) bookingModal.classList.remove('active');
+        });
+
+        document.querySelector('.booking-modal form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Бронювання підтверджено! Ми зв’яжемося з вами незабаром.');
+            bookingModal.classList.remove('active');
+        });
+
+        // Gallery Lightbox
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.querySelector('.lightbox');
+        const lightboxImg = lightbox.querySelector('img');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                lightboxImg.src = item.querySelector('img').src;
+                lightbox.classList.add('active');
+            });
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) lightbox.classList.remove('active');
+        });
+
+        // Contact Form
+        document.querySelector('.contact-form form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Повідомлення надіслано! Ми відповімо незабаром.');
+        });
+
+        // Video Optimization
+        const video = document.querySelector('.hero video');
+        video.setAttribute('playsinline', '');
+        video.setAttribute('preload', 'auto');
+        video.playbackRate = 1.0;
+
+        // Heart Animation
+        const heartBtn = document.querySelector('.heart-btn');
+        heartBtn.addEventListener('click', () => {
+            for (let i = 0; i < 10; i++) {
+                const heart = document.createElement('span');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤️';
+                heart.style.setProperty('--random-x', (Math.random() - 0.5) * 2);
+                heart.style.animationDelay = `${i * 0.1}s`;
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 2000);
+            }
+        });
+
+// Запускаємо анімацію одразу після завантаження сторінки
+window.addEventListener('load', startBalloonAnimation);
+    </script>
+</body>
+</html>
